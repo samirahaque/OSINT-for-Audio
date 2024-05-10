@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Resources Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <meta http-equiv="refresh" content="30">
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</head>
+<body class="dashboard-page">
+
+  
+    <div class="dashboard-container">
+        <div class="header-title">
+            <h1>Educational Resources Hub</h1>
+            <h2 class="organization-title" id="organization-title">(Cyber Org)</h2>
+        </div>
+
+        <!-- Navigation Menu -->
+        <div class="nav-menu">
+            <a href="">User Activity</a>
+            <a href="#">Network Statistics</a>
+            <a href="#">Live Alerts</a>
+            <a href="#">Agents</a>
+            <a href="#">Logout</a>
+        </div>
+
+<!--Dte of Cyber Ops-->
+
+
+
+       <!-- Active Agents  <p>Your JWT Token: {{ jwt_token }}</p>-->
+        <div class="agent-status-container">
+            <!-- Active Agents -->
+            <div class="agent-status active">
+                <h2><a href="#" class="agent-link">Active Agents</a></h2>
+                <div class="agent-status-count"></div>
+                <div class="agent-status-text">Online</div>
+            </div>
+    
+            <!-- Disconnected Agents -->
+            <div class="agent-status disconnected">
+              <!-- Disconnected Agents   <h2>Disconnected Agents</h2>-->
+                <h2><a href="#" class="agent-link">Disconnected Agents</a></h2>
+                <div class="agent-status-count"></div>
+                <div class="agent-status-text">Offline</div>
+            </div>
+    
+            <!-- Total Agents -->
+            <div class="agent-status total">
+                
+                <h2><a href="#" class="agent-link">Total Agents</a></h2>
+                <div class="agent-status-count"></div>
+                <div class="agent-status-text">Total</div>
+            </div>
+    
+            <!-- Pending Agents -->
+            <div class="agent-status pending">
+                <h2><a href="#" class="agent-link"></a>Pending Agents</h2>
+                <div class="agent-status-count"></div>
+                <div class="agent-status-text">Pending</div>
+            </div>
+    
+            <!-- Never Connected Agents -->
+            <div class="agent-status never-connected">
+                <h2><a href="#"></a>Never Connected</h2>
+                <div class="agent-status-count"></div>
+                <div class="agent-status-text">Never Connected</div>
+            </div>
+        </div>
+
+        <!-- Graphs of Activities -->
+        <div class="content">
+            <div class="graph">
+                <h2>Activity Graph</h2>
+                <!-- Placeholder for statistics -->
+                <p>Graph will be displayed here.</p>
+            </div>
+            
+            
+            <div class="table">
+                <h2>Recent Alerts</h2>
+                <!-- Placeholder for table -->
+                <p>Table will be displayed here.</p>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="graph">
+                <h2>Network Statistics</h2>
+                <!-- Placeholder for statistics -->
+                <p>Statistics will be displayed here.</p>
+            </div>
+            <div class="table">
+                <h2>User Activity</h2>
+                <!-- Placeholder for user activity -->
+                <p>User activity details will be displayed here.</p>
+            </div>
+        </div>
+        </div>
+
+    <div class="footer">
+        <p>&copy; 2024 UEBA System</p>
+    </div>
+
+
+    <script>
+        // Example JavaScript for moving the names in the active agents list
+        function rotateActiveAgents() {
+            var list = document.getElementById("active-agent-names");
+            if (list.children.length > 1) {
+                list.appendChild(list.children[0]); // Move the first item to the end
+            }
+        }
+        // Rotate the list every 2 seconds
+        setInterval(rotateActiveAgents, 2000);
+
+        function checkFullscreen() {
+        // Check if the document is in fullscreen mode
+        return (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement);
+    }
+
+    document.addEventListener('mousemove', function(event) {
+        var navMenu = document.querySelector('.nav-menu');
+        if (checkFullscreen()) {
+            // Hide the menu in fullscreen unless the mouse is near the top of the screen
+            if (event.clientY < 50) { // Adjust this value as needed
+                navMenu.style.transform = 'translateY(0)';
+            } else {
+                navMenu.style.transform = 'translateY(-100%)';
+            }
+        } else {
+            // Always show the menu when not in fullscreen
+            navMenu.style.transform = 'translateY(0)';
+        }
+    });
+
+    const orgText = "Web Development Learning Platform";
+const typingSpeed = 100;
+let typingIndex = 0;
+let isTyping = true;
+const orgElement = document.getElementById('organization-title');
+
+function type() {
+    if (isTyping) {
+        if (typingIndex <= orgText.length) {
+            orgElement.innerHTML = orgText.slice(0, typingIndex++);
+            if(typingIndex === 1) orgElement.style.opacity = 1; // Make text visible when typing starts
+            setTimeout(type, typingSpeed);
+        } else {
+            isTyping = false;
+            setTimeout(() => {
+                orgElement.style.opacity = 0; // Hide text before deleting
+                setTimeout(type, 500); // Delay before start deleting
+            }, 2000); // Pause before deleting
+        }
+    } else {
+        if (typingIndex > 0) {
+            orgElement.innerHTML = orgText.slice(0, --typingIndex);
+            setTimeout(type, typingSpeed);
+        } else {
+            isTyping = true;
+            setTimeout(type, 1000); // Pause before retyping
+        }
+    }
+}
+
+setTimeout(type, 1000); // Initial delay before typing starts
+
+
+
+
+</script>
+
+
+</body>
+</html>
