@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Audio OSINT Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+</head>
+
+<body class="dashboard-page">
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1 class="header-title">Audio OSINT Dashboard</h1>
+                <a href="{{ url_for('logout') }}" class="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </header>
+
+        <main class="dashboard-content">
+            <section class="upload-audio-wrapper">
+                <h2 class="section-title">Upload Your Audio File</h2>
+                <p class="upload-instructions">Select an audio file to begin analysis. Supported formats include MP3,
+                   OGG,  WAV, and AAC.</p>
+                    <form action="{{ url_for('upload_audio') }}" method="post" enctype="multipart/form-data" class="upload-form">
+                        <label for="audio_file" class="upload-label">
+                            <i class="fas fa-upload upload-icon"></i> Choose File
+                        </label>
+                        <input type="file" name="audio_file" id="audio_file" required class="upload-input">
+                        <button type="submit" class="btn upload-btn">Upload & Analyze</button>
+                    </form>
+            </section>
+
+            <!-- Text to Speech Section -->
+            <section class="text-to-speech-section">
+                <h2 class="section-title">Convert Text to Speech</h2>
+                <form action="{{ url_for('text_to_speech') }}" method="post" class="text-to-speech-form">
+                    <textarea name="text" placeholder="Enter text here..." required class="text-input"></textarea>
+                    <button type="submit" class="btn tts-btn">Convert to Speech</button>
+                </form>
+            </section>
+            <!-- Text-to-Speech Download Section -->
+            {% if tts_filename %}
+            <section class="download-tts-section">
+                <h2 class="section-title">Download Your Speech File</h2>
+                <a href="{{ url_for('download', filename=tts_filename) }}" class="btn download-btn">Download Speech
+                    File</a>
+            </section>
+            {% endif %}
+            <div class="flash-messages">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <li class="alert">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endwith %}
+            </div>
+
+            <!-- Speech to Text Section -->
+            <section class="speech-to-text-section">
+                <h2 class="section-title">Transcribe Audio to Text</h2>
+                <form action="{{ url_for('speech_to_text') }}" method="post" enctype="multipart/form-data"
+                    class="stt-form">
+                    <input type="file" name="audio_file" required class="upload-input">
+                    <button type="submit" class="btn stt-btn">Transcribe Audio</button>
+                </form>
+            </section>
+
+            <!-- Action Buttons with Descriptions -->
+            <div class="actions-section">
+                <h2 class="section-title">Available Actions</h2>
+                <div class="button-container">
+                    <!-- Existing action buttons -->
+                    <div class="action-item">
+                        <button id="transcribeAudioButton" data-url="{{ url_for('transcribe_audio') }}"
+                            class="btn action-btn">
+                            <i class="fas fa-microphone-alt"></i> Transcribe Audio
+                        </button>
+                        <p class="action-description">Convert speech in your audio file to text.</p>
+                    </div>
+                    <div class="action-item">
+                        <button id="performAnalysisButton" data-url="{{ url_for('analyze_audio') }}"
+                            class="btn action-btn">
+                            <i class="fas fa-chart-line"></i> Perform Analysis
+                        </button>
+                        <p class="action-description">Analyze audio for sentiment.</p>
+                    </div>
+                    <div class="action-item">
+                        <button id="antiMilitaryDetectionButton" data-url="{{ url_for('anti_military_detection') }}"
+                            class="btn action-btn">
+                            <i class="fas fa-shield-alt"></i> Anti-Military Detection
+                        </button>
+                        <p class="action-description">Detect and analyze military-grade audio.</p>
+                    </div>
+                    <div class="action-item">
+                        <button id="entityExtractionButton" data-url="{{ url_for('entity_extraction') }}"
+                            class="btn action-btn">
+                            <i class="fas fa-user-secret"></i> Entity Extraction
+                        </button>
+                        <p class="action-description">Extract entities like Weapon, Location, Date, Rank and Operation from audio.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const buttons = document.querySelectorAll('button[data-url]');
+                buttons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        const url = button.getAttribute('data-url');
+                        window.location.href = url;
+                    });
+                });
+            });
+
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const alerts = document.querySelectorAll('.alert');
+                alerts.forEach(alert => {
+                    setTimeout(() => {
+                        alert.style.opacity = '0';  // Start a fade-out
+                        setTimeout(() => {
+                            alert.remove();  // Fully remove from DOM after fade-out
+                        }, 600);  // Wait for 600ms to complete the fade-out effect
+                    }, 3000); // Start fade-out after 3000 ms = 3 seconds
+                });
+            });
+
+
+        </script>
+    </div>
+</body>
+
+</html>

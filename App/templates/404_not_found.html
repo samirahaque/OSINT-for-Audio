@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Alert: 404 Error</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <style>
+        body {
+            text-align: center;
+            padding: 40px;
+            background-color: #0e1111;
+            color: #0fbd8c;
+            font-family: 'Orbitron', sans-serif;
+        }
+        h1 {
+            font-size: 80px;
+            margin-bottom: 40px;
+            color: #ff6347;
+            text-shadow: 0 0 10px #ff6347;
+        }
+        article {
+            display: block;
+            text-align: center;
+            width: 650px;
+            margin: 0 auto;
+        }
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 0 5px #007bff;
+        }
+        a:hover {
+            background-color: #0056b3;
+            box-shadow: 0 0 10px #0056b3;
+        }
+        .error-image {
+            margin: 20px 0;
+            display: inline-block;
+            width: 300px;
+            border-radius: 50%;
+            border: 3px solid #007bff;
+            box-shadow: 0 0 15px 5px rgba(0,0,0,0.6);
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <h1>Oops!</h1>
+        <img src="static\images\img.png" alt="Funny Error Image" class="error-image">
+        <p>It seems like the page you're looking for has taken a little detour.</p>
+        <p>Don't worry, we'll help get you back on track!</p>
+        <a href="/">Return Home</a>
+    </article>
+</body>
+</html>
+
+
+
+
+

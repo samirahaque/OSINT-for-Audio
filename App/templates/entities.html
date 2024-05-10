@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transcription and Entity Analysis Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='entities.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Analysis Results</h1>
+        
+        <!-- Transcribed Text Section -->
+        <h2>Transcribed Text</h2>
+        <p class="text">{{ transcription }}</p>
+        
+        <!-- Recognized Entities Section -->
+        <h2>Recognized Entities</h2>
+        <ul>
+            {% for entity, label in entities %}
+            <li class="{{ label }}"><i class="{{ icon_map[label] }}"></i> <strong>{{ entity }}</strong> - {{ label }}</li>
+            {% endfor %}
+        </ul>
+        
+        <!-- Sentiment Analysis Section -->
+        <h2>Anti-Military Content Detection in Audio</h2>
+        <p class="sentiment {{ sentiment }}">Audio have {{ sentiment }} Content.
+            {% if sentiment == 'Neutral' %}
+            <i class="fas fa-meh"></i>
+            {% elif sentiment == 'Anti-military' %}
+            <i class="fas fa-exclamation-triangle"></i>
+            {% endif %}
+        </p>
+        
+        <!-- Return to Dashboard Button -->
+        <a href="{{ url_for('dashboard') }}" class="btn">Return to Dashboard</a>
+    </div>
+</body>
+</html>
