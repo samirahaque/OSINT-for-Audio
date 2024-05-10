@@ -1,0 +1,128 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    padding-top: 60px;
+}
+
+.dashboard-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eaeaea;
+}
+
+.nav-menu {
+    background-color: white; /* Background color */
+    margin-top: 5px; /* Margin from the top */
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: flex-start; /* Align items to the left */
+    padding: 5px 0; /* Vertical padding */
+    border-bottom: 4px solid #037ecf; /* Accent border */
+    z-index: 1000;
+}
+
+.nav-menu a:not(.back-button) {
+    color: #333; /* Text color for other links */
+    padding: 10px 15px; /* Padding */
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    border: 1px solid #037ecf; /* Border for a defined shape */
+    margin: 0 5px; /* Margin between buttons */
+    /* ... other styles ... */
+}
+
+/* Style for Rectangular Image Button */
+.back-button {
+    display: inline-block; /* Inline-block for the button */
+    width: 100px; /* Width */
+    height: 45px; /* Height */
+    border-radius: 5px; /* Rounded corners */
+    background-image: url('undo.png'); /* Arrow icon */
+    background-color: white; /* Background color */
+    background-repeat: no-repeat;
+    background-position: center; /* Center the image */
+    background-size: 50%; /* Image size */
+    transition: transform 0.3s ease; /* Smooth transition */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-left: auto; /* Push the button to the right */
+    line-height: 45px; /* Center the text vertically */
+}
+
+.back-button:hover {
+    transform: scale(1.05); /* Enlarge on hover */
+}
+
+
+
+
+.agents-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.agents-table th, .agents-table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.agents-table thead th {
+    background-color: #037ecf;
+    color: white;
+    cursor: pointer;
+    position: sticky;
+    top: 0;
+}
+
+.agents-table tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+.footer {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table-container .agents-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container .agents-table thead th {
+    background-color: #0771d4;
+    color: white;
+    cursor: pointer;
+    position: sticky;
+    top: 0;
+}
+
+.table-container .table-body {
+    max-height: 500px; /* Adjust as needed */
+    overflow-y: auto;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding-top: 80px;
+    }
+    .nav-menu a {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}

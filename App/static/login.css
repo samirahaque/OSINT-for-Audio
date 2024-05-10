@@ -1,0 +1,283 @@
+/* Page Layout and Background */
+body.login-page {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000; /* Dark background for contrast */
+    color: #00ff00; /* Light text for readability */
+    overflow: hidden;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+}
+
+/* Matrix Effect Styling */
+.matrix {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.matrix span {
+    position: absolute;
+    top: -20%;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 20px; /* Readable size for matrix characters */
+    color: #0f0; /* Classic matrix green */
+    white-space: nowrap;
+    opacity: 0;
+    animation: fall 8s linear infinite; /* Animation for falling effect */
+}
+
+@keyframes fall {
+    0% { top: -10%; opacity: 1; }
+    70% { top: 110%; opacity: 1; }
+    100% { top: 110%; opacity: 0; }
+}
+
+/* UEBA Header Styling for Professional SIEM Aesthetic with Shadow */
+.ueba-header {
+    width: 100%;
+    background-color: #000000; /* Subdued dark gray */
+    color: #08ee27; /* Light gray text */
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    border-bottom: 3px solid #333; /* Slightly lighter border */
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-family: 'Arial', sans-serif; /* Modern font */
+    box-shadow: 0px 0px 15px 3px rgba(0, 150, 0, 0.5); /* Outer shadow for depth */
+}
+
+.ueba-header h2 {
+    font-size: 1.8em; /* Visible font size */
+    margin: 0;
+    letter-spacing: 1px; /* Refined letter spacing */
+}
+
+
+
+/* Ensuring Full Visibility of Login Title */
+.login-container h1 {
+    font-size: 1.5em; /* Reduced font size to fit the container */
+    white-space: normal; /* Allow wrapping */
+    overflow: visible; /* Show overflow */
+    text-overflow: clip; /* Clip overflowed text */
+}
+
+/* Login Container Styling */
+.login-container {
+    position: relative;
+    z-index: 1;
+    margin-top: 100px; /* Space below fixed header */
+    background: rgba(20, 20, 20, 0.95);
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 3px rgba(0, 150, 0, 0.5);
+    width: 340px;
+    text-align: center;
+}
+
+.login-container h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #4CAF50; /* Cyber theme color */
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Input and Button Styling */
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+    box-sizing: border-box; /* Add this line */
+}
+
+/* .login-container button {
+    background: linear-gradient(45deg, #0277a1, #003eff);
+    box-shadow: 0 4px 15px 0 rgba(0, 186, 255, 0.4);
+    transition: all 0.3s ease;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.login-container button:hover {
+    opacity: 0.8;
+    background: linear-gradient(45deg, #ff001f, #00baff);
+    box-shadow: 0 4px 15px 0 rgba(255, 0, 31, 0.4);
+} */
+
+
+/* Cyber-Themed Login Button Styling with Green Glow Effect */
+.login-container button {
+    background-color: #000000; /* Black background for the button */
+    color: #FFFFFF; /* White text for contrast */
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 2px solid #00FF00; /* Bright green border for the cyber look */
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00 inset; /* Subtle green glow */
+    transition: background-color 0.3s ease, box-shadow 0.5s ease;
+}
+
+.login-container button:hover, .login-container button:focus {
+    background-color: #003300; /* Dark green on hover for a subtle effect */
+    color: #FFFFFF;
+    box-shadow: 0 0 20px #00FF00, 0 0 30px #00FF00 inset; /* Intensified green glow on hover */
+}
+
+.login-container button:active {
+    background-color: #002200; /* Even darker green to simulate pressing */
+    box-shadow: 0 0 10px #00FF00, 0 0 15px #00FF00 inset; /* Slightly reduced glow for depth */
+}
+
+/* Enhancing the cyber look with a dynamic glow effect */
+.login-container button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, transparent, #00FF00, transparent);
+    z-index: -1;
+    transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
+    opacity: 0; /* Hidden initially for a smooth transition */
+}
+
+.login-container button:hover::before {
+    opacity: 0.2; /* Visible on hover, providing a glowing halo effect */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+
+/* Flash Messages Styling */
+.flash-messages {
+    margin-top: 15px;
+}
+
+.flash-messages ul {
+    list-style: none;
+    padding: 0;
+}
+
+.flash-messages li {
+    background-color: #ff0000; /* Red background for errors */
+    color: white;
+    padding: 12px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    text-align: center;
+    animation: blinker 1.5s linear infinite;
+}
+
+.gif-container {
+    float: left; /* Align to the right of the login container */
+    width: 500px; /* Reduced width */
+    height: 20; /* Adjust height proportionally */
+    margin-right: 30px; /* Adjust right margin as needed */
+    display: flex;
+    justify-content: center; /* Center the GIF within the container */
+    align-items: center; /* Align vertically */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    .gif-container {
+        width: 50px; /* Even smaller on mobile devices */
+        margin-right: 0; /* Remove right margin on smaller screens */
+        margin-top: 20px; /* Add some space above the GIF */
+    }
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Space between login container and GIF */
+    margin-top: 50px; /* Adjusted for overall alignment */
+}
+
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+
+#typing-instructions {
+    color: #0fbd8c; /* Example color, can be changed */
+    font-family: 'Source Code Pro', monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid orange; /* Cursor effect */
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+}
+
+.ueba-title {
+    text-align: center;
+    color: #ffffff; /* Adjust color to fit your theme */
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+    padding-top: 20px;
+    font-size: 2.5em; /* Large font size for prominence */
+    letter-spacing: 2px; /* Spacing between letters for a modern look */
+}
+
+/* Additional styling for the body or container elements if needed */
+.login-page {
+    background-color: #000000; /* Example background color */
+    /* Other styles */
+}
+
+
+@keyframes glitch {
+    0% { text-shadow: 1px 0 #0f0; }
+    20% { text-shadow: -1px -2px #0f0; }
+    40% { text-shadow: -2px 2px #0f0; }
+    60% { text-shadow: 2px -1px #0f0; }
+    80% { text-shadow: 1px 2px #0f0; }
+    100% { text-shadow: -1px -1px #0f0; }
+}

@@ -1,0 +1,87 @@
+/* Base styles for the body and container */
+body {
+    font-family: 'Arial', sans-serif; /* Simple, clean font */
+    background-color: #f4f4f4; /* Light gray background */
+    color: #333; /* Dark gray text for readability */
+    padding: 20px;
+    margin: 0;
+}
+
+.container {
+    max-width: 800px; /* Constrain the width of the content */
+    margin: auto; /* Center the container */
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Heading styles */
+h1 {
+    color: #0056b3; /* Blue color for primary headings */
+    text-align: center;
+}
+
+h2 {
+    border-bottom: 2px solid #0056b3; /* Blue underline for subheadings */
+    color: #333;
+    padding-bottom: 5px;
+}
+
+/* Paragraph and list styles */
+p, ul {
+    line-height: 1.6; /* More readable line spacing */
+}
+
+li {
+    margin-bottom: 5px; /* Space between list items */
+}
+
+/* Button styling */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #0056b3; /* Blue background */
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #003974; /* Darker blue on hover */
+}
+
+/* Entity and Sentiment Colors */
+.WEAPON { color: black; }
+.LOCATION { color: green; }
+.OPERATION { color: red; }
+.RANK { color: purple; }
+.Neutral { color: #0730ff; }
+.Anti-military { color: #DC3545; }
+
+/* Text Styling */
+.text { font-family: 'Courier New', Courier, monospace; }
+
+/* Icon Enhancements */
+.fas, .far {
+    margin-right: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fas:hover, .far:hover {
+    transform: scale(1.1); /* Slightly enlarges the icon on hover */
+}
+
+/* List item enhancements for entities */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+    padding: 5px;
+    border-left: 5px solid currentColor; /* Dynamically colors the border based on the text color */
+}

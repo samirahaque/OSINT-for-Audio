@@ -1,0 +1,550 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.dashboard-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eaeaea;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+/* Additional Styling for Enhanced Look */
+.dashboard-header {
+    background-color: #14212D;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #0077FF;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.dashboard-widget {
+    background-color: #fafafa;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+/* Enhanced Cyber-Style Header with Refined Animated Gradient and Electric Border */
+.header-title {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(270deg, #0f1624, #203a43, #2c5364, #0f1624, #203a43, #2c5364);
+    background-size: 400% 400%;
+    color: #ecf0f1;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Orbitron', sans-serif;
+    animation: GradientAnimation 15s ease infinite, ElectricBorder 3s linear infinite;
+    border: double 3px #0077ff;
+    position: relative;
+}
+
+/* Box with Transforming Signal Electric Border */
+.electric-box {
+    width: 300px; /* Adjust as needed */
+    height: 200px; /* Adjust as needed */
+    border: 3px solid #333; /* Basic border */
+    position: relative;
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Keep the shadow within the box */
+    animation: transformingSignalBorder 3s linear infinite; /* Apply the animation */
+}
+
+/* Keyframes for Transforming Signal Electric Border Animation */
+@keyframes transformingSignalBorder {
+    0%, 100% {
+        box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, /* Smaller green glow */
+                    0 0 20px #00ff00, 0 0 40px #00ff00; /* Larger green outer glow */
+    }
+    25% {
+        box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, /* Medium red glow */
+                    0 0 30px #ff0000, 0 0 60px #ff0000; /* Larger red outer glow */
+    }
+    50% {
+        box-shadow: 0 0 15px #0000ff, 0 0 30px #0000ff, /* Large blue glow */
+                    0 0 45px #0000ff, 0 0 90px #0000ff; /* Very large blue outer glow */
+    }
+    75% {
+        box-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00, /* Smaller yellow glow */
+                    0 0 20px #ffff00, 0 0 40px #ffff00; /* Larger yellow outer glow */
+    }
+}
+
+/* Original Gradient Animation */
+@keyframes GradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.header-title h1 {
+    font-size: 2.5em;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    text-shadow: 0 0 5px #f50404;
+}
+
+
+.organization-title {
+    font-size: 1.5em;
+    color: #f39c12;
+    font-weight: normal;
+    min-height: 20px; /* Consistent height to maintain layout */
+    text-shadow: 0 0 3px #f39c12, 0 0 10px #f39c12;
+    opacity: 0; /* Start with text invisible */
+    transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
+    display: inline-block; /* Ensures that min-height is respected */
+    margin-top: 10px; /* Adjust top margin for alignment */
+    width: 100%; /* Ensure full width for alignment */
+    text-align: center; /* Center the text */
+}
+
+
+.logout-button {
+    color: #ecf0f1;
+    background-color: #333;
+    border: 1px solid #0077FF;
+    padding: 8px 16px;
+    font-size: 1em;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.logout-button:hover {
+    background-color: #0077FF;
+    color: #0f1624;
+    transform: translateY(-2px);
+}
+
+
+
+/* Add this inside the <head> section of your HTML */
+/* Additional CSS for auto-typing effect */
+.typewriter {
+    overflow: hidden; /* Hide overflow to create typing effect */
+    white-space: nowrap; /* Prevent line breaks */
+    animation: typing 3s steps(40) infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Load the Orbitron font (add this inside the <head> section of your HTML) */
+
+
+
+
+.agent-status i { /* Default icon style */
+    margin-right: 8px;
+}
+
+.active i {
+    color: #28a745; /* Green for active */
+}
+
+.disconnected i {
+    color: #dc3545; /* Red for disconnected */
+}
+
+.total i {
+    color: #007bff; /* Blue for total */
+}
+
+.pending i {
+    color: #ffc107; /* Yellow for pending */
+}
+
+.never-connected i {
+    color: #6c757d; /* Grey for never connected */
+}
+
+
+
+
+/* General Content Styles */
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Graph and Table Section Styles */
+.graph, .table {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    background: #1e1e2f; /* Dark background for contrast */
+    border-radius: 8px;
+    color: #ffffff; /* White text for readability */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.graph h2, .table h2 {
+    color: #4dd0e1; /* Bright blue for headings */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Placeholder Text Styles */
+.graph p, .table p {
+    color: #adb5bd; /* Light gray for placeholder text */
+    text-align: center;
+    font-style: italic;
+}
+
+/* Gradient Backgrounds for Graph and Table Sections */
+.graph {
+    background: linear-gradient(to bottom, #29323c, #485563); /* Gradient for graph */
+}
+
+.table {
+    background: linear-gradient(to bottom, #232526, #414345); /* Gradient for table */
+}
+
+/* Reset body margin and padding */
+body {
+    margin: 0;
+    padding: 0;
+    /* Add other body styles as needed */
+}
+
+/* Updated Footer Styles */
+.footer {
+    background-color: #1a1a1a; /* Dark background for footer */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0; /* Align the footer to the left edge */
+    width: 100%; /* Ensure it spans the full width of the viewport */
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+
+/* Login Container Styles */
+.login-container {
+    background: #fff;
+    margin: 2em auto;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.login-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.7em;
+    margin-top: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-container button:hover {
+    background-color: #45a049;
+}
+
+/* Flash Messages Styling */
+.flash-messages {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+    width: 300px;
+    margin: 0; /* centered in a fixed position at top right */
+    text-align: center;
+}
+
+.flash-messages ul {
+    list-style: none;
+    padding: 0;
+}
+
+.flash-messages li {
+    background-color: #f44336; /* Deep red */
+    color: white;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    border-radius: 5px;
+    border: 1px solid transparent; /* Keeps the layout consistent */
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    color: white;
+    background-color: #f44336; /* Ensure consistency in background color */
+    border-color: #70db70; /* Optionally adjust if needed */
+}
+
+
+/* Enhanced Button Styles for Clear Actionability */
+button, .btn {
+    background-color: #17a2b8; /* Bootstrap info color for a fresh look */
+    color: #ffffff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin: 0 10px 10px 0; /* Spacing between buttons */
+}
+
+button:hover, button:focus, .btn:hover, .btn:focus {
+    background-color: #138496; /* Slightly darker for hover/focus state */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Input Styling for a Unified Look */
+input[type="text"], input[type="password"], input[type="file"], input[type="submit"] {
+    border: 2px solid #17a2b8;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: border 0.3s ease;
+}
+
+input[type="submit"] {
+    background-color: #17a2b8;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #138496;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="file"]:focus {
+    border-color: #138496;
+    outline: none; /* Removes default focus outline */
+}
+
+/* Form and Label Enhancements for Clarity */
+form {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-size: 16px;
+    color: #495057; /* Bootstrap default font color */
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Styling for Descriptive Texts and Links */
+.action-description, a {
+    font-size: 14px;
+    color: #6c757d; /* Bootstrap secondary text color */
+    margin-top: 5px;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: #e70615;
+    text-decoration: underline; /* Reinforces clickable nature */
+}
+
+/* Table Enhancements for Data Presentation */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px; /* Ensures spacing from preceding elements */
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 2px solid #dee2e6; /* Bootstrap table border color */
+}
+
+th {
+    background-color: #17a2b8;
+    color: white;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+/* Responsive Adjustments for a Fluid Experience */
+@media (max-width: 768px) {
+    .dashboard-container, .upload-audio-wrapper, .actions-section {
+        width: 98%;
+        margin: 20px auto; /* Centers content and adds spacing */
+    }
+
+    .content, .button-container {
+        flex-direction: column;
+    }
+
+    .action-item, .btn {
+        width: 100%;
+        margin-bottom: 15px; /* Increased spacing for stacked elements */
+    }
+
+    /* Optimizing Form Layout for Smaller Screens */
+    form {
+        padding: 15px;
+    }
+
+    label, input[type="submit"] {
+        font-size: 14px; /* Adjusts font size for better readability */
+    }
+
+    input[type="submit"] {
+        padding: 12px; /* Ensures button is touch-friendly */
+    }
+}
+
+/* Enhancements for Action Sections */
+.actions-section {
+    padding: 20px;
+    margin: 30px auto; /* Adds more breathing room */
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 22px; /* Increased font size for prominence */
+    margin-bottom: 20px; /* Space below the title for clear section separation */
+    color: #0077FF; /* Bright blue color for visibility and aesthetics */
+    text-decoration: underline; /* Underline to highlight section titles */
+    text-underline-offset: 3px; /* Space between text and underline */
+    text-decoration-color: #0077FF; /* Same color for the underline as the text */
+    text-decoration-thickness: 2px; /* Thicker underline for prominence */
+    padding-bottom: 5px; /* Padding to space text from underline */
+    text-align: center; /* Center align the text */
+    display: block; /* Ensures the element behaves as a block-level element */
+    width: 100%; /* Ensures it fills its container */
+    transition: color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.section-title:hover {
+    color: #0056b3; /* Slightly darker blue on hover for interactive feel */
+}
+
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers buttons for all screen sizes */
+}
+
+.action-item {
+    margin: 10px;
+    text-align: center;
+}
+
+/* Tooltips for Contextual Information */
+.tooltip .tooltiptext {
+    background-color: #17a2b8; /* Matching theme color */
+    color: #F9F9F9;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+
+/* Text-to-Speech Section Styling */
+.text-to-speech-section {
+    background: #F9F9F9; /* Darker shade for focus */
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px #f4f4f4;
+    transition: all 0.3s ease-in-out;
+}
+
+.text-to-speech-section:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 6px 20px rgba(0, 255, 255, 0.6); /* Cyan glow for emphasis */
+}
+
+
+
+.text-to-speech-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text-input {
+    width: 100%; /* Full-width to maximize space */
+    height: 100px; /* Larger area for more text */
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #17A2B8; /* Teal border for consistency */
+    background: white; /* Slight transparency */
+    color: black;
+    font-size: 16px; /* Larger font size for readability */
+    resize: none; /* Disable resizing to maintain layout */
+}
+
+.tts-btn {
+    background-color: #17A2B8; /* Darker teal for the button */
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px; /* Spaced out letters for readability */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.tts-btn:hover {
+    background-color: #17A2B8; /* Even darker on hover */
+    transform: scale(1.05); /* Slight increase in size */
+}
