@@ -1,0 +1,400 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.dashboard-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eaeaea;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Additional Styling for Enhanced Look */
+.dashboard-header {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-bottom: 1px solid #eaeaea;
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.dashboard-content {
+    padding: 15px;
+}
+
+.dashboard-widget {
+    background-color: #fafafa;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+/* Enhanced Cyber-Style Header with Refined Animated Gradient and Electric Border */
+.header-title {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(270deg, #0f1624, #203a43, #2c5364, #0f1624, #203a43, #2c5364);
+    background-size: 400% 400%;
+    color: #ecf0f1;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Orbitron', sans-serif;
+    animation: GradientAnimation 15s ease infinite, ElectricBorder 3s linear infinite;
+    border: double 3px #0077ff;
+    position: relative;
+}
+
+/* Box with Transforming Signal Electric Border */
+.electric-box {
+    width: 300px; /* Adjust as needed */
+    height: 200px; /* Adjust as needed */
+    border: 3px solid #333; /* Basic border */
+    position: relative;
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Keep the shadow within the box */
+    animation: transformingSignalBorder 3s linear infinite; /* Apply the animation */
+}
+
+/* Keyframes for Transforming Signal Electric Border Animation */
+@keyframes transformingSignalBorder {
+    0%, 100% {
+        box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, /* Smaller green glow */
+                    0 0 20px #00ff00, 0 0 40px #00ff00; /* Larger green outer glow */
+    }
+    25% {
+        box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, /* Medium red glow */
+                    0 0 30px #ff0000, 0 0 60px #ff0000; /* Larger red outer glow */
+    }
+    50% {
+        box-shadow: 0 0 15px #0000ff, 0 0 30px #0000ff, /* Large blue glow */
+                    0 0 45px #0000ff, 0 0 90px #0000ff; /* Very large blue outer glow */
+    }
+    75% {
+        box-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00, /* Smaller yellow glow */
+                    0 0 20px #ffff00, 0 0 40px #ffff00; /* Larger yellow outer glow */
+    }
+}
+
+/* Original Gradient Animation */
+@keyframes GradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.header-title h1 {
+    font-size: 2.5em;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    text-shadow: 0 0 5px #f50404;
+}
+
+
+.organization-title {
+    font-size: 1.5em;
+    color: #f39c12;
+    font-weight: normal;
+    min-height: 20px; /* Consistent height to maintain layout */
+    text-shadow: 0 0 3px #f39c12, 0 0 10px #f39c12;
+    opacity: 0; /* Start with text invisible */
+    transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
+    display: inline-block; /* Ensures that min-height is respected */
+    margin-top: 10px; /* Adjust top margin for alignment */
+    width: 100%; /* Ensure full width for alignment */
+    text-align: center; /* Center the text */
+}
+
+.nav-menu {
+    background-color: #333;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    border-bottom: 4px solid #4CAF50;
+    z-index: 1000;
+}
+
+.nav-menu a {
+    color: #f2f2f2;
+    padding: 10px 15px; /* Adjust padding as needed */
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    border: 1px solid #4CAF50; /* Add border for a defined shape */
+    margin: 0 5px; /* Adjust spacing between buttons */
+}
+
+.nav-menu a:hover {
+    background-color: #2f5fb9; /* Highlight color on hover */
+    color: white;
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+
+/* Ensure global h1 styles do not override */
+h1 {
+    color: #333;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+
+/* Add this inside the <head> section of your HTML */
+/* Additional CSS for auto-typing effect */
+.typewriter {
+    overflow: hidden; /* Hide overflow to create typing effect */
+    white-space: nowrap; /* Prevent line breaks */
+    animation: typing 3s steps(40) infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Load the Orbitron font (add this inside the <head> section of your HTML) */
+
+
+
+/* General Content Styles */
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Graph and Table Section Styles */
+.graph, .table {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    background: #1e1e2f; /* Dark background for contrast */
+    border-radius: 8px;
+    color: #ffffff; /* White text for readability */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.graph h2, .table h2 {
+    color: #4dd0e1; /* Bright blue for headings */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Placeholder Text Styles */
+.graph p, .table p {
+    color: #adb5bd; /* Light gray for placeholder text */
+    text-align: center;
+    font-style: italic;
+}
+
+/* Gradient Backgrounds for Graph and Table Sections */
+.graph {
+    background: linear-gradient(to bottom, #29323c, #485563); /* Gradient for graph */
+}
+
+.table {
+    background: linear-gradient(to bottom, #232526, #414345); /* Gradient for table */
+}
+
+/* Reset body margin and padding */
+body {
+    margin: 0;
+    padding: 0;
+    /* Add other body styles as needed */
+}
+
+/* Updated Footer Styles */
+.footer {
+    background-color: #1a1a1a; /* Dark background for footer */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0; /* Align the footer to the left edge */
+    width: 100%; /* Ensure it spans the full width of the viewport */
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+
+/* Login Container Styles */
+.login-container {
+    background: #fff;
+    margin: 2em auto;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.login-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.7em;
+    margin-top: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-container button:hover {
+    background-color: #45a049;
+}
+
+/* Flash Messages Styling */
+.flash-messages {
+    width: 300px;
+    margin: 1em auto;
+    text-align: center;
+}
+
+.flash-messages ul {
+    list-style: none;
+    padding: 0;
+}
+
+.flash-messages li {
+    background-color: #f44336;
+    color: white;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    border-radius: 5px;
+}
+
+.agent-status-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    background-color: #f8f9fa; /* Light background for the container */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.agent-status {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    flex-grow: 1; /* Adjust the size of each status block */
+    margin: 0 5px; /* Adjust spacing between items */
+}
+
+.agent-status h2 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.agent-status-count {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.agent-status-text {
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Styling for specific agent statuses */
+.agent-status.active .agent-status-count {
+    color: #4CAF50; /* Green color for active agents */
+}
+
+.agent-status.disconnected .agent-status-count {
+    color: #f44336; /* Red color for disconnected agents */
+}
+
+.agent-status.total .agent-status-count {
+    color: #3498db; /* Blue color for total agents */
+}
+
+.agent-status.pending .agent-status-count {
+    color: #f1c40f; /* Yellow color for pending agents */
+}
+
+.agent-status.never-connected .agent-status-count {
+    color: #95a5a6; /* Gray color for never connected agents */
+}
+
+/* Example of hover effect */
+.agent-status:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+.agent-link {
+    color: black; /* Set the color to black */
+    text-decoration: none; /* Remove underline */
+}
+
+.agent-link:hover {
+    text-decoration: underline; /* Optionally, add underline on hover for better user experience */
+}
+
+
+
+
+
+.agents-list-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.active-agents, .disconnected-agents {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.agent-list {
+    list-style: none;
+    padding: 0;
+}
+
+.agent-list li {
+    background: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    color: #333;
+}
+
+.disconnected-agents .agent-list li {
+    background: #ffe0e0; /* Light red for disconnected agents */
+}
+
+.active-agents .agent-list li {
+    background: #e0ffe0; /* Light green for active agents */
+}
+
