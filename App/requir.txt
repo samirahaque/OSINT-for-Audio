@@ -1,0 +1,1 @@
+pip install gtts SpeechRecognition pydub spacy joblib scikit-learn

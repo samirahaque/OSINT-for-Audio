@@ -1,0 +1,3 @@
+pip install flask
+pip install --upgrade pylance
+pip install Flask Flask-Login Flask-SQLAlchemy

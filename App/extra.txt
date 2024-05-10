@@ -1,0 +1,30 @@
+'''
+@app.route('/refresh-token')
+def refresh_token():
+    if 'jwt_token' in session and 'token_expires' in session:
+        if is_token_expiring(session['token_expires']):
+            # Refresh the token
+            username = session.get('username')
+            password = session.get('password')
+            new_jwt_token = authenticate_with_wazuh_api(username, password)
+            if new_jwt_token:
+                session['jwt_token'] = new_jwt_token
+                session['token_expires'] = datetime.now() + timedelta(seconds=900)
+                return jsonify({"message": "Token refreshed successfully"})
+            else:
+                return jsonify({"error": "Failed to refresh token"}), 401
+        else:
+            return jsonify({"message": "Token is still valid"})
+    else:
+        return jsonify({"error": "No active session found"}), 401
+
+
+def refresh_token_task():
+    with app.app_context():
+        # Call the refresh token endpoint
+        requests.get('http://localhost:5000/refresh-token')
+
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=refresh_token_task, trigger="interval", minutes=14)
+
+'''
